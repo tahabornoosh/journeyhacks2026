@@ -1,0 +1,144 @@
+:root {
+    --primary-teal: #00A676;
+    --text-dark: #1A2D37;
+    --text-light: #708090;
+    --bg-color: #F8FAFB;
+    --card-bg: #FFFFFF;
+    --border-radius: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+/* Navbar Style */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: white;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon { color: var(--primary-teal); }
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+nav a:first-child {
+    color: var(--primary-teal);
+    font-weight: 600;
+}
+
+/* Container & Header */
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.form-header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+/* Form Styling */
+.profile-form {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input {
+    padding: 14px;
+    border: 1px solid #E0E7FF;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border-color: var(--primary-teal);
+}
+
+/* Sex Pill Buttons */
+.radio-group {
+    display: flex;
+    gap: 10px;
+}
+
+.pill {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #E0E7FF;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.pill.active {
+    background: #E6F6F1;
+    border-color: var(--primary-teal);
+    color: var(--primary-teal);
+    font-weight: 600;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary-teal);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #008f65;
+}

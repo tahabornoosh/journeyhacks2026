@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalTrack - Profile Setup</title>
+    <link rel="stylesheet" href="formstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🍃</span> VitalTrack
+        </div>
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Nutrition</a>
+            <a href="#">Symptoms</a>
+            <a href="#">Results</a>
+        </nav>
+        <div class="profile-icon">👤</div>
+    </header>
+
+    <main class="container">
+        <section class="form-header">
+            <h1>Personal Profile</h1>
+            <p>Ready to help you achieve your health and nutrition goals?</p>
+        </section>
+
+        <form class="profile-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" placeholder="Years">
+                </div>
+                <div class="form-group">
+                    <label>Sex</label>
+                    <div class="radio-group">
+                        <button type="button" class="pill active">Male</button>
+                        <button type="button" class="pill">Female</button>
+                        <button type="button" class="pill">Other</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" placeholder="e.g. 180">
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="e.g. 75">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Save Profile</button>
+        </form>
+    </main>
+
+</body>
+</html>
