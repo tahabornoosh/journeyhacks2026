@@ -25,5 +25,6 @@ urlpatterns = [
     path('', PIV.landing),
     path('nutritions/', NUV.seeAll),
     path('user/', PIV.edit),
-    path("symptoms/", SIV.journal)
+    path("symptoms/", SIV.seeAll),
+    path("suggestions/", SIV.suggestions)
 ]
