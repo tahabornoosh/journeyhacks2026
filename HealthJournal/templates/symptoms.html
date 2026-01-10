@@ -142,22 +142,17 @@
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="logo">PurePath Journal</div>
-        <div style="margin-bottom: 10px; font-weight: bold;">Past Entries</div>
-        <ul class="history-list">
-        </ul>
-    </div>
 
     <div class="main-content">
-        <div class="editor-container">
-            <div class="date-header" id="current-date">January 10, 2026</div>
-            <input type="text" class="title-input" placeholder="Today's Focus...">
-            <textarea class="journal-textarea" placeholder="Start writing your heart out..."></textarea>
+        
+        <div class="editor-container"><a href="/">Home</a>
+            <div class="date-header" id="current-date">Your symptoms Journal</div>
             
+            <form method="post"><textarea style="width:100%; height:400px" name="entry" class="journal-textarea" placeholder="Start writing your heart out...">{{journal.entry}}</textarea>
+            {% csrf_token %}
             <div class="controls">
-                <button class="save-btn">Save Entry</button>
-            </div>
+                <button type="submit" class="save-btn">Save Entry</button>
+            </div></form>
         </div>
     </div>
 

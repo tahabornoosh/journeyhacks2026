@@ -9,3 +9,6 @@ def seeAll(request):
         obj.entry = request.POST['entry']
         obj.save()
         return render(request, 'symptoms.html', {'journal':journal.objects.get(id=1)})
+
+def suggestions(request):
+    return render(request, "suggestions.html", {})
