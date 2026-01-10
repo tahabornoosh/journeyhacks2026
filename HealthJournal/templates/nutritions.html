@@ -10,6 +10,7 @@
 <body class="bg-slate-50 text-slate-900 font-sans">
 
     <nav class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center sticky top-0 z-10">
+
         <div class="flex items-center gap-2">
             <div class="bg-emerald-500 p-1.5 rounded-lg">
                 <i data-lucide="leaf" class="text-white w-5 h-5"></i>
@@ -36,16 +37,9 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div class="md:col-span-2 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col items-center justify-center relative overflow-hidden">
-                <div class="relative flex items-center justify-center">
-                    <svg class="w-48 h-48 transform -rotate-90">
-                        <circle cx="96" cy="96" r="88" stroke="currentColor" stroke-width="12" fill="transparent" class="text-slate-100" />
-                        <circle cx="96" cy="96" r="88" stroke="currentColor" stroke-width="12" fill="transparent" stroke-dasharray="552" stroke-dashoffset="193" class="text-emerald-500 stroke-round" />
-                    </svg>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center">
-                        <span class="text-4xl font-black">1,450</span>
-                        <span class="text-slate-400 text-sm uppercase tracking-wider">kcal left</span>
-                    </div>
-                </div>
+        <div class="alert alert-danger">
+            {{ gemini_response }}
+        </div>
             </div>
 
             <div class="flex flex-col gap-4">

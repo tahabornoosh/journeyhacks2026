@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from PersonalInfo import views as PIV
+from Nutrition import views as NUV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', PIV.landing)
+    path('', PIV.landing),
+    path('nutritions/', NUV.seeAll)
 ]
