@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalTrack | Personal Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        textarea { resize: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+    <nav class="bg-white border-b border-slate-200 px-6 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-emerald-500 p-1.5 rounded-lg">
+                    <i data-lucide="leaf" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight text-slate-800">VitalTrack</span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 font-medium">
+                <a href="/" class="text-emerald-600">Dashboard</a>
+                <a href="/nutritions" class="text-slate-500 hover:text-emerald-500 transition">Nutrition</a>
+                <a href="/symptoms" class="text-slate-500 hover:text-emerald-500 transition">Symptoms</a>
+                <a href="/results" class="text-slate-500 hover:text-emerald-500 transition">Results</a>
+            </div>
+
+            <a href="/user">
+                <button class="bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition">
+                    <i data-lucide="user" class="w-5 h-5 text-slate-600"></i>
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-2xl mx-auto px-6 py-12">
+        <header class="mb-10 text-center md:text-left">
+            <h1 class="text-3xl font-bold text-slate-900 mb-2">Personal Profile</h1>
+            <p class="text-slate-500">Tell us more about yourself to customize your nutrition plan.</p>
+        </header>
+        
+        <form method="post" id="profileForm" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+            {% csrf_token %}
+            <div class="mb-6">
+                <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Full Name</label>
+                <input name="name" value="{{info.name}}" type="text" id="name" required
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition" 
+                    placeholder="e.g. Alex Johnson">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div>
+                    <label for="age" class="block text-sm font-semibold text-slate-700 mb-2">Age</label>
+                    <input name="age" type="number" id="age" required value="{{ info.age }}"
+                        class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition" 
+                        placeholder="Years">
+                </div>
+                <div>
+                    <label for="height" class="block text-sm font-semibold text-slate-700 mb-2">Height (cm)</label>
+                    <input name="height" type="number" id="height" required value="{{ info.height }}"
+                        class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition" 
+                        placeholder="e.g. 180">
+                </div>
+                <div>
+                    <label for="weight" class="block text-sm font-semibold text-slate-700 mb-2">Weight (kg)</label>
+                    <input name="weight" type="number" id="weight" required value="{{ info.weight }}"
+                        class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition" 
+                        placeholder="e.g. 75">
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label for="preferences" class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-2">
+                    <i data-lucide="utensils" class="w-4 h-4 text-emerald-500"></i>
+                    Food Preferences
+                </label>
+                <textarea name='food' id="preferences" rows="3"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition" 
+                    placeholder="e.g. Vegan, Gluten-free, no peanuts, loves spicy food...">{{info.nutrition_preferences}}</textarea>
+            </div>
+
+            <div class="mb-8">
+                <label for="medical" class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-2">
+                    <i data-lucide="activity" class="w-4 h-4 text-rose-500"></i>
+                    Medical Conditions
+                </label>
+                <textarea name="medical" id="medical" rows="3"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition" 
+                    placeholder="e.g. Type 2 Diabetes, Hypertension, or 'None'">{{ info.medical_conditions }}</textarea>
+            </div>
+
+            <button type="submit" 
+                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-200 transition-all transform active:scale-[0.98] flex items-center justify-center gap-2">
+                <i data-lucide="save" class="w-5 h-5"></i>
+                Save Profile
+            </button>
+        </form>
+
+        <div id="successMsg" class="hidden mt-4 p-4 bg-emerald-100 text-emerald-700 rounded-xl text-center font-medium animate-pulse">
+            Profile updated successfully!
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        
+    </script>
+</body>
+</html>

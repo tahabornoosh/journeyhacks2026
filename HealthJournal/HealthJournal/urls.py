@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from PersonalInfo import views as PIV
 from Nutrition import views as NUV
+from Symptoms import views as SIV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', PIV.landing),
-    path('nutritions/', NUV.seeAll)
+    path('nutritions/', NUV.seeAll),
+    path('user/', PIV.edit),
+    path("symptoms/", SIV.journal)
 ]
