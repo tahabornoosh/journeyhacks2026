@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalTrack | Personal Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        textarea { resize: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+    <nav class="bg-white border-b border-slate-200 px-6 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-emerald-500 p-1.5 rounded-lg">
+                    <i data-lucide="leaf" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight text-slate-800">VitalTrack</span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 font-medium">
+                <a href="/" class="text-emerald-600">Dashboard</a>
+                <a href="/nutritions" class="text-slate-500 hover:text-emerald-500 transition">Nutrition</a>
+                <a href="/symptoms" class="text-slate-500 hover:text-emerald-500 transition">Symptoms</a>
+                <a href="/suggestions" class="text-slate-500 hover:text-emerald-500 transition">Food Suggestions</a>
+            </div>
+
+            <a href="/user">
+                <button class="bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition">
+                    <i data-lucide="user" class="w-5 h-5 text-slate-600"></i>
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-2xl mx-auto px-6 py-12">
+        <header class="mb-10 text-center md:text-left">
+            <h1 class="text-3xl font-bold text-slate-900 mb-2">New Nutrition Entry</h1>
+        </header>
+        
+        <style>
+  /* Base Styles */
+  .profile-form {
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #ffffff; /* White */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Meal Group "Cards" */
+  .form-group {
+    background-color: #f0f7ff; /* Soft Blue Tint */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #2d7ff9; /* Blue Accent */
+  }
+
+  /* Specific Styling for the Snack/Notes to differentiate */
+  .form-group:nth-child(4) {
+    border-left-color: #ff9800; /* Orange Accent for Snacks */
+    background-color: #fff8f0; /* Soft Orange Tint */
+  }
+
+  .form-group:last-of-type {
+    border-left-color: #4caf50; /* Green Accent for Notes */
+    background-color: #f1f8f1; /* Soft Green Tint */
+  }
+
+  /* Labels */
+  label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  /* Meal Header Labels (The ones with emojis) */
+  label[for*="-type"], label[for="notes"] {
+    color: #2d7ff9; /* Blue */
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Highlight text in orange for the Snack/Meal 4 */
+  label[for="meal4-type"] {
+    color: #ff9800;
+  }
+
+  /* Inputs */
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #ff9800; /* Orange focus for interaction */
+  }
+
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #4caf50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  }
+
+  .submit-btn:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+</style>
+
+<form class="profile-form" method="post">
+
+  <div class="form-group">
+    <label for="meal1-type">🍳 Meal 1</label>
+    <input name="m1" type="text" id="meal1-type" placeholder="Breakfast, Lunch, or Dinner">
+
+    <label for="meal1-food">What did you eat?</label>
+    <input name="f1" type="text" id="meal1-food" placeholder="Ex: Eggs and toast">
+  </div>
+
+  <div class="form-group">
+    <label for="meal2-type">🥪 Meal 2</label>
+    <input name="m2" type="text" id="meal2-type" placeholder="Breakfast, Lunch, or Dinner">
+
+    <label for="meal2-food">What did you eat?</label>
+    <input name="f2" type="text" id="meal2-food" placeholder="Ex: Chicken sandwich">
+  </div>
+
+  <div class="form-group">
+    <label for="meal3-type">🍽 Meal 3</label>
+    <input name="m3" type="text" id="meal3-type" placeholder="Breakfast, Lunch, or Dinner">
+
+    <label for="meal3-food">What did you eat?</label>
+    <input name="f3" type="text" id="meal3-food" placeholder="Ex: Steak, pasta">
+  </div>
+{% csrf_token %}
+  <div class="form-group">
+    <label for="meal4-type">🍪 Meal 4 / Snack</label>
+    <input name="m4" type="text" id="meal4-type" placeholder="Snack, Dessert, or Extra Meal">
+
+    <label for="meal4-food">What did you eat?</label>
+    <input name="f4" type="text" id="meal4-food" placeholder="Ex: Ice cream, chips">
+  </div>
+
+  <div class="form-group">
+    <label for="notes">📝 Notes</label>
+    <input name="notes" type="text" id="notes" placeholder="Write foods you liked, disliked, or how you felt">
+  </div>
+
+  <button type="submit" class="submit-btn">Save Daily Form </button>
+
+</form>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        
+    </script>
+</body>
+</html>

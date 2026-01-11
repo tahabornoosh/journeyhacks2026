@@ -26,5 +26,6 @@ urlpatterns = [
     path('nutritions/', NUV.seeAll),
     path('user/', PIV.edit),
     path("symptoms/", SIV.seeAll),
-    path("suggestions/", SIV.suggestions)
+    path("suggestions/", SIV.suggestions),
+    path('nutrition/<int:slug>/', NUV.see)
 ]

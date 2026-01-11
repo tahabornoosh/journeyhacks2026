@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from google import genai
 from django.conf import settings
 from .models import nutrition
@@ -18,3 +18,13 @@ def seeAll(request):
     )
     
     return render(request, "nutritions.html", {"gemini_response":response.text, "nutritions":objs, "count":objs.count, "date":datetime.now()})
+
+def see(request, slug):
+    if request.method=="GET":
+        return render(request, 'nutrition.html', {})
+    else:
+        br = nutrition.objects.create(title=request.POST['m1'], food_drink=request.POST['f1'], notes=request.POST['notes'])
+        lu = nutrition.objects.create(title=request.POST['m2'], food_drink=request.POST['f2'], notes=request.POST['notes'])
+        di = nutrition.objects.create(title=request.POST['m3'], food_drink=request.POST['f3'], notes=request.POST['notes'])
+        sn = nutrition.objects.create(title=request.POST['m4'], food_drink=request.POST['f4'], notes=request.POST['notes'])
+        return redirect("/nutritions")
